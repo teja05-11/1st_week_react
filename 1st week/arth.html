@@ -1,0 +1,35 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+<div id="root"></div>
+<script type="text/babel">
+    
+    function App(){
+       
+        function add(){
+        const no1=Number(document.querySelector('#root > div > input:nth-child(1)').value)
+        const no2=Number(document.querySelector('#root > div > input:nth-child(3)').value)
+        const sum=no1+no2;
+        document.querySelector('#root > div > h1').innerText=sum
+        if(sum>0){
+            document.querySelector('#root > div > h1').style.color='red' 
+        }
+        else{
+            document.querySelector('#root > div > h1').style.color='green' 
+        }
+
+            
+        }
+        return (<div>
+           no1:<input/><br/>
+            no2:<input />
+            <button onClick={add}>submit</button>
+            <h1></h1>
+
+            </div>
+        )
+    }
+    const root=ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<App />)
+</script>

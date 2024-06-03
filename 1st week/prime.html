@@ -1,0 +1,34 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+
+<div id="root"></div>
+<script type="text/babel">
+    function App(){
+        const numRef=React.useRef();
+        function prime(){
+            const no1=parseInt(numRef.current.value);
+            let count=0;
+            for(let i=1;i<=no1;i++){
+                if(no1%i===0){
+                    count++;
+                }
+            }
+            if(count>2){
+                alert('not prime');
+            }
+            else{
+                alert('prime');
+            }    
+        }       
+        return(<div>
+            <input ref={numRef}/><br />
+            <button onClick={prime}>submit</button>
+            </div>
+        )
+
+    }
+    const root=ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<App/>);
+</script>

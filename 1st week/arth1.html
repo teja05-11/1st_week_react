@@ -1,0 +1,40 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+
+<div id="root"></div>
+<script type="text/babel">
+    function App() {
+        const no1ref = React.useRef();
+        const no2ref = React.useRef();
+        const pref = React.useRef();
+
+        function add() {
+            const no1 = no1ref.current.value;
+            const no2 = no2ref.current.value;
+            const sum = Number(no1) + Number(no2);
+
+            const h1EleRef = pref.current;
+            h1EleRef.innerText = sum;
+
+            let color = "blue";
+            if (sum < 100) {
+                color = "red";
+            }
+            h1EleRef.style.color = color;
+        }
+
+        return (
+            <div>
+                no1: <input ref={no1ref} type="number" /><br />
+                no2: <input ref={no2ref} type="number" />
+                <button onClick={add}>submit</button>
+                <h1 ref={pref}></h1>
+            </div>
+        );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>

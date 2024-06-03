@@ -1,0 +1,21 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+<div id="root"></div>
+<script type="text/babel">
+    function Player(props){
+        return (<h1>my fname is {props.name} and my lname is {props.lname} and {props.children}</h1>)
+    }
+
+
+    function App(){
+        return ( <div>
+        <Player name='teja' lname='mothalla'>hello</Player>
+        <Player name='arjun' lname='mothalla'>hi</Player>
+        </div>
+        )
+    }
+
+    const root=ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
